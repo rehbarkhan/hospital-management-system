@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% block title %}Login Page | HMS {% endblock %}
+
+{% block body %}
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <label for="Email">
+        Email : <input type="email" name="email" id="Email" required>
+    </label>
+    <label for="password">
+        Password : <input type="password" name="password" id="password" required>
+    </label>
+
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}
