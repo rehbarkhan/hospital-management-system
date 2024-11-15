@@ -23,11 +23,11 @@ class Command(BaseCommand):
             zip_code = 'xxxx'
         )
         if status:
-            user, status = User.objects.get_or_create(
+            user, status_ = User.objects.get_or_create(
                 email = profile.email,
                 Profile = profile
             )
-            if status:
+            if status_:
                 user.first_name = profile.first_name
                 user.last_name = profile.last_name
                 p = get_random_string(length=10)
